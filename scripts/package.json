@@ -1,0 +1,14 @@
+{
+	"name": "scripts",
+	"version": "1.0.0",
+	"description": "",
+	"main": "extract.js",
+	"dependencies": {
+		"cheerio": "1.0.0-rc.12"
+	},
+	"scripts": {
+		"run": "node extract.js"
+	},
+	"author": "",
+	"license": "ISC"
+}
