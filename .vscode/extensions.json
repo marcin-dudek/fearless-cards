@@ -1,9 +1,0 @@
-{
-    "recommendations": [
-        "svelte.svelte-vscode",
-        "ardenivanov.svelte-intellisense",
-        "esbenp.prettier-vscode",
-        "golang.go",
-        "streetsidesoftware.code-spell-checker"
-    ]
-}
