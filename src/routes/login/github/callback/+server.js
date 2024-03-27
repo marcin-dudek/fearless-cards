@@ -1,12 +1,11 @@
 import { OAuth2RequestError } from "arctic";
 import { generateId } from "lucia";
-import { github, lucia } from "$lib/server/auth";
+import { getGithub, getLucia } from "$lib/auth";
 
-
-export const GET = async (event) => {
-  const code = event.url.searchParams.get("code");
-  const state = event.url.searchParams.get("state");
-  const storedState = event.cookies.get("github_oauth_state") ?? null;
+const onRequestGet = async (context) => {
+  const code = context.request.url.searchParams.get("code");
+  const state = context.request.url.searchParams.get("state");
+  const storedState = context.request.cookies.get("github_oauth_state") ?? null;
 
   if (!code || !state || !storedState || state !== storedState) {
     return new Response(null, {
@@ -15,7 +14,7 @@ export const GET = async (event) => {
   }
 
   try {
-    const tokens = await github.validateAuthorizationCode(code);
+    const tokens = await getGithub(context).validateAuthorizationCode(code);
     const githubUserResponse = await fetch("https://api.github.com/user", {
       headers: {
         Authorization: `Bearer ${tokens.accessToken}`
@@ -24,31 +23,27 @@ export const GET = async (event) => {
     const githubUser = await githubUserResponse.json();
 
     // Replace this with your own DB client.
-    const existingUser = await event.env.db.prepare("SELECT * FROM user WHERE github_id = ? limit 1")
+    const existingUser = await context.env.DB.prepare("SELECT * FROM user WHERE github_id = ? limit 1")
       .bind(githubUser.id)
       .first();
 
+    let userId = null;
     if (existingUser) {
-      const session = await lucia.createSession(existingUser.id, {});
-      const sessionCookie = lucia.createSessionCookie(session.id);
-      event.cookies.set(sessionCookie.name, sessionCookie.value, {
-        path: ".",
-        ...sessionCookie.attributes
-      });
+      userId = existingUser.id;
     } else {
-      const userId = generateId(15);
+      userId = generateId(15);
 
-      // Replace this with your own DB client.
-      let insert = event.env.db.prepare("INSERT INTO user (id, username, github_id) VALUES (?, ?, ?)");
+      let insert = context.env.DB.prepare("INSERT INTO user (id, username, github_id) VALUES (?, ?, ?)");
       await insert.bind(userId, githubUser.login, githubUser.id).run();
-
-      const session = await lucia.createSession(userId, {});
-      const sessionCookie = lucia.createSessionCookie(session.id);
-      event.cookies.set(sessionCookie.name, sessionCookie.value, {
-        path: ".",
-        ...sessionCookie.attributes
-      });
     }
+
+    const session = await getLucia(context).createSession(userId, {});
+    const sessionCookie = getLucia(context).createSessionCookie(session.id);
+    context.request.cookies.set(sessionCookie.name, sessionCookie.value, {
+      path: ".",
+      ...sessionCookie.attributes
+    });
+
     return new Response(null, {
       status: 302,
       headers: {
@@ -68,3 +63,5 @@ export const GET = async (event) => {
     });
   }
 }
+
+export default { onRequestGet };

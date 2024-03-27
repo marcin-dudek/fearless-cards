@@ -1,7 +1,23 @@
 import { Lucia } from "lucia";
 import { dev } from "$app/environment";
 import { GitHub } from "arctic";
+import { D1Adapter } from "@lucia-auth/adapter-sqlite";
 
+
+export const getLucia = (context) => {
+  const adapter = new D1Adapter(context.env.DB, {
+    user: "user",
+    session: "session"
+  });
+  return new Lucia(adapter);
+};
+
+export const getGithub = (context) => {
+  new GitHub(
+    context.secrets.GITHUB_CLIENT_ID,
+    context.secrets.GITHUB_CLIENT_SECRET
+  )
+};
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
