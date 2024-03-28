@@ -1,20 +1,14 @@
 import { redirect } from "@sveltejs/kit";
 import { generateState } from "arctic";
-import { github } from "$lib/auth";
+import { getGithub } from "$lib/auth";
 
-const onRequestGet = async (context) => {
+export const GET = async (context) => {
   const state = generateState();
-  const url = await github.createAuthorizationURL(state);
+  const github = getGithub(context);
+  const url = await github.createAuthorizationURL(state, { redirectURI: "http://localhost:5173/login/github/callback" });
 
-  context.request.cookies.set("github_oauth_state", state, {
-    path: "/",
-    secure: import.meta.env.PROD,
-    httpOnly: true,
-    maxAge: 60 * 10,
-    sameSite: "lax"
-  });
-
+  context.request.headers.set("set-cookie", `github_oauth_state=${state}; secure=false; Path=/; HttpOnly=true; MaxAge=600; SameSite=Lax`);
+  console.log("state", state);
+  // console.log(context.request.headers);
   redirect(302, url.toString());
 }
-
-export default { onRequestGet };

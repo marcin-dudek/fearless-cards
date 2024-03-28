@@ -2,12 +2,17 @@ import { OAuth2RequestError } from "arctic";
 import { generateId } from "lucia";
 import { getGithub, getLucia } from "$lib/auth";
 
-const onRequestGet = async (context) => {
-  const code = context.request.url.searchParams.get("code");
-  const state = context.request.url.searchParams.get("state");
-  const storedState = context.request.cookies.get("github_oauth_state") ?? null;
+export const GET = async (context) => {
 
-  if (!code || !state || !storedState || state !== storedState) {
+  let url = new URL(context.request.url);
+  const code = url.searchParams.get("code");
+  const state = url.searchParams.get("state");
+  const storedState = context.request.headers.get("Set-Cookie") ?? null;
+
+  //console.log("url", context.request.url);
+  //console.log("storedState", state, storedState);
+
+  if (!code || !state) {
     return new Response(null, {
       status: 400
     });
@@ -15,30 +20,34 @@ const onRequestGet = async (context) => {
 
   try {
     const tokens = await getGithub(context).validateAuthorizationCode(code);
+    //console.log(tokens);
     const githubUserResponse = await fetch("https://api.github.com/user", {
       headers: {
         Authorization: `Bearer ${tokens.accessToken}`
       }
     });
+    console.log(context.platform);
     const githubUser = await githubUserResponse.json();
-
+    //console.log(githubUser);
     // Replace this with your own DB client.
-    const existingUser = await context.env.DB.prepare("SELECT * FROM user WHERE github_id = ? limit 1")
+    const existingUser = await context.platform.DB.prepare("SELECT * FROM user WHERE github_id = ? limit 1")
       .bind(githubUser.id)
       .first();
 
+    console.log(context.platform);
     let userId = null;
     if (existingUser) {
       userId = existingUser.id;
     } else {
       userId = generateId(15);
 
-      let insert = context.env.DB.prepare("INSERT INTO user (id, username, github_id) VALUES (?, ?, ?)");
+      let insert = context.platform.DB.prepare("INSERT INTO user (id, username, github_id) VALUES (?, ?, ?)");
       await insert.bind(userId, githubUser.login, githubUser.id).run();
     }
 
     const session = await getLucia(context).createSession(userId, {});
     const sessionCookie = getLucia(context).createSessionCookie(session.id);
+    console.log(sessionCookie.attributes);
     context.request.cookies.set(sessionCookie.name, sessionCookie.value, {
       path: ".",
       ...sessionCookie.attributes
@@ -52,6 +61,7 @@ const onRequestGet = async (context) => {
     });
   } catch (e) {
     // the specific error message depends on the provider
+    console.log(e);
     if (e instanceof OAuth2RequestError) {
       // invalid code
       return new Response(null, {
@@ -63,5 +73,3 @@ const onRequestGet = async (context) => {
     });
   }
 }
-
-export default { onRequestGet };

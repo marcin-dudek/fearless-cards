@@ -1,5 +1,4 @@
 import { Lucia } from "lucia";
-import { dev } from "$app/environment";
 import { GitHub } from "arctic";
 import { D1Adapter } from "@lucia-auth/adapter-sqlite";
 
@@ -13,31 +12,26 @@ export const getLucia = (context) => {
 };
 
 export const getGithub = (context) => {
-  new GitHub(
-    context.secrets.GITHUB_CLIENT_ID,
-    context.secrets.GITHUB_CLIENT_SECRET
+  return new GitHub(
+    context.platform.env.Github_ClientId,
+    context.platform.env.Github_Secret
   )
 };
 
-export const lucia = new Lucia(adapter, {
-  sessionCookie: {
-    attributes: {
-      secure: !dev
-    }
-  },
-  getUserAttributes: (attributes) => {
-    return {
-      // attributes has the type of DatabaseUserAttributes
-      githubId: attributes.github_id,
-      username: attributes.username
-    };
-  }
-});
-
-//export const github = new GitHub("clientId", "clientSecret");
-export const github = new GitHub(
-  import.meta.env.GITHUB_CLIENT_ID,
-  import.meta.env.GITHUB_CLIENT_SECRET
-);
+//export default { getLucia, getGithub };
+// export const lucia = new Lucia(adapter, {
+//   sessionCookie: {
+//     attributes: {
+//       secure: !dev
+//     }
+//   },
+//   getUserAttributes: (attributes) => {
+//     return {
+//       // attributes has the type of DatabaseUserAttributes
+//       githubId: attributes.github_id,
+//       username: attributes.username
+//     };
+//   }
+// });
 
 //https://lucia-auth.com/tutorials/github-oauth/sveltekit

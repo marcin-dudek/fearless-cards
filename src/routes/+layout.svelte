@@ -8,6 +8,7 @@
 			<a class="btn btn-ghost text-xl" href="/">GoW Teams</a>
 		</div>
 		<div class="navbar-center">
+			<a href="/login/github">Sign in with GitHub</a>
 		</div>
 		<div class="navbar-end">
 			<label class="btn btn-ghost swap swap-rotate">
