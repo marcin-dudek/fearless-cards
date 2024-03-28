@@ -1,14 +1,23 @@
-import { redirect } from "@sveltejs/kit";
-import { generateState } from "arctic";
-import { getGithub } from "$lib/auth";
+import { redirect } from '@sveltejs/kit';
+import { generateState } from 'arctic';
+import { serializeCookie } from 'oslo/cookie';
+import { getGithub } from '$lib/auth';
 
 export const GET = async (context) => {
-  const state = generateState();
-  const github = getGithub(context);
-  const url = await github.createAuthorizationURL(state, { redirectURI: "http://localhost:5173/login/github/callback" });
+	const state = generateState();
+	const github = getGithub(context);
+	const url = await github.createAuthorizationURL(state);
 
-  context.request.headers.set("set-cookie", `github_oauth_state=${state}; secure=false; Path=/; HttpOnly=true; MaxAge=600; SameSite=Lax`);
-  console.log("state", state);
-  // console.log(context.request.headers);
-  redirect(302, url.toString());
-}
+	console.log(context.platform);
+	const cookie = serializeCookie('github_oauth_state', state, {
+		secure: context.platform.env.Environment === 'Production',
+		path: '/',
+		httpOnly: true,
+		maxAge: 600,
+		sameSite: 'lax'
+	});
+
+	context.request.headers.set('set-cookie', cookie);
+
+	redirect(302, url.toString());
+};

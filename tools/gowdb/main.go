@@ -101,6 +101,7 @@ func parseData() ([]class, []banner, []troop, error) {
 		tableHtml.Find("tr").Each(func(rowIndex int, rowHtml *goquery.Selection) {
 			var id int64
 			var kind, name, kingdom, rarity string
+			var color []string
 			rowHtml.Find("td").Each(func(cellIndex int, cellHtml *goquery.Selection) {
 				switch cellIndex {
 				case 0:
@@ -114,6 +115,8 @@ func parseData() ([]class, []banner, []troop, error) {
 					kingdom = strings.TrimSuffix(cellHtml.Text(), s)
 				case 3:
 					rarity = cellHtml.Text()
+				case 5:
+					color = strings.Split(strings.ReplaceAll(cellHtml.Text(), " ", ""), ",")
 				}
 			})
 			switch kind {
@@ -122,7 +125,7 @@ func parseData() ([]class, []banner, []troop, error) {
 			case "Kingdom":
 				banners = append(banners, banner{id, name})
 			case "Troop":
-				troops = append(troops, troop{id, name, kingdom, rarity})
+				troops = append(troops, troop{id, name, kingdom, rarity, color})
 			}
 		})
 	})
@@ -150,8 +153,9 @@ type class struct {
 }
 
 type troop struct {
-	Id      int64  `json:"id"`
-	Name    string `json:"name"`
-	Kingdom string `json:"kingdom"`
-	Rarity  string `json:"rarity"`
+	Id      int64    `json:"id"`
+	Name    string   `json:"name"`
+	Kingdom string   `json:"kingdom"`
+	Rarity  string   `json:"rarity"`
+	Color   []string `json:"color"`
 }
