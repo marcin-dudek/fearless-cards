@@ -10,7 +10,7 @@ export const GET = async (context) => {
 	const storedState = context.request.headers.get('Set-Cookie') ?? null;
 
 	//console.log("url", context.request.url);
-	//console.log("storedState", state, storedState);
+	console.log("state = storedState", state, storedState);
 
 	if (!code || !state) {
 		return new Response(null, {
@@ -27,7 +27,6 @@ export const GET = async (context) => {
 		});
 
 		const githubUser = await githubUserResponse.json();
-		console.log(githubUser);
 
 		const db = context.platform.env.DB;
 		const existingUser = await db.prepare('SELECT * FROM user WHERE auth_provider = "github" and foreign_id = ? limit 1')
@@ -37,22 +36,21 @@ export const GET = async (context) => {
 		let userId = null;
 		if (existingUser) {
 			userId = existingUser.id;
+			let update = db.prepare('UPDATE user SET username = ?, avatar_url = ? WHERE id = ?');
+			await update.bind(githubUser.name ?? githubUser.login, githubUser.avatar_url, userId).run();
 		} else {
 			userId = generateId(15);
-			let insert = db.prepare('INSERT INTO user (id, username, auth_provider, foreign_id) VALUES (?, ?, ?, ?)');
-			await insert.bind(userId, githubUser.login, 'github', githubUser.id).run();
+			let insert = db.prepare('INSERT INTO user (id, username, auth_provider, foreign_id, avatar_url) VALUES (?, ?, ?, ?,?)');
+			await insert.bind(userId, githubUser.name ?? githubUser.login, 'github', githubUser.id, githubUser.avatar_url).run();
 		}
 
 		const session = await getLucia(context).createSession(userId, {});
 		const sessionCookie = getLucia(context).createSessionCookie(session.id);
-		console.log(sessionCookie);
 
 		context.request.headers.set('set-cookie', serializeCookie(sessionCookie.name, sessionCookie.value, {
 			path: '.',
 			...sessionCookie.attributes
 		}));
-
-		console.log("Headers", context.request.headers);
 
 		return new Response(null, {
 			status: 302,

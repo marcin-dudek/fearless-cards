@@ -8,7 +8,6 @@ export const GET = async (context) => {
 	const github = getGithub(context);
 	const url = await github.createAuthorizationURL(state);
 
-	console.log(context.platform);
 	const cookie = serializeCookie('github_oauth_state', state, {
 		secure: context.platform.env.Environment === 'Production',
 		path: '/',

@@ -7,7 +7,21 @@ export const getLucia = (context) => {
 		user: 'user',
 		session: 'session'
 	});
-	return new Lucia(adapter);
+	return new Lucia(adapter, {
+		sessionCookie: {
+			attributes: {
+				secure: context.platform.env.Environment === 'Production',
+			}
+		},
+		getUserAttributes: (attributes) => {
+			return {
+				id: attributes.id,
+				username: attributes.username,
+				avatar_url: attributes.avatar_url
+			};
+		}
+
+	});
 };
 
 export const getGithub = (context) => {
