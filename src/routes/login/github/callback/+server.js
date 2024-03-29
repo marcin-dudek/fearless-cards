@@ -9,7 +9,6 @@ export const GET = async (context) => {
 	const state = url.searchParams.get('state');
 	const storedState = context.request.headers.get('Set-Cookie') ?? null;
 
-	//console.log("url", context.request.url);
 	console.log("state = storedState", state, storedState);
 
 	if (!code || !state) {
@@ -47,15 +46,14 @@ export const GET = async (context) => {
 		const session = await getLucia(context).createSession(userId, {});
 		const sessionCookie = getLucia(context).createSessionCookie(session.id);
 
-		context.request.headers.set('set-cookie', serializeCookie(sessionCookie.name, sessionCookie.value, {
-			path: '.',
-			...sessionCookie.attributes
-		}));
-
 		return new Response(null, {
 			status: 302,
 			headers: {
-				Location: '/'
+				Location: '/',
+				'Set-Cookie': serializeCookie(sessionCookie.name, sessionCookie.value, {
+					path: '.',
+					...sessionCookie.attributes
+				})
 			}
 		});
 	} catch (e) {

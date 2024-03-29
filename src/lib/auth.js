@@ -10,7 +10,7 @@ export const getLucia = (context) => {
 	return new Lucia(adapter, {
 		sessionCookie: {
 			attributes: {
-				secure: context.platform.env.Environment === 'Production',
+				secure: context.platform.env.IsProduction,
 			}
 		},
 		getUserAttributes: (attributes) => {
