@@ -1,1 +1,0 @@
-alter table user add column avatar_url text;

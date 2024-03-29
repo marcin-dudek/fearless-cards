@@ -1,3 +1,4 @@
+-- Migration number: 0001 	 2024-03-29T19:56:46.768Z
 create table if not exists teams (
   id text primary key,
   code text not null,
