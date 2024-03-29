@@ -1,6 +1,7 @@
 import { OAuth2RequestError } from 'arctic';
 import { generateId } from 'lucia';
 import { getGithub, getLucia } from '$lib/auth';
+import { serializeCookie } from 'oslo/cookie';
 
 export const GET = async (context) => {
 	let url = new URL(context.request.url);
@@ -24,37 +25,34 @@ export const GET = async (context) => {
 				Authorization: `Bearer ${tokens.accessToken}`
 			}
 		});
-		console.log(context.platform);
-		const githubUser = await githubUserResponse.json();
-		// console.log(githubUser);
 
-		const existingUser = await context.platform.DB.prepare(
-			'SELECT * FROM user WHERE github_id = ? limit 1'
-		)
+		const githubUser = await githubUserResponse.json();
+		console.log(githubUser);
+
+		const db = context.platform.env.DB;
+		const existingUser = await db.prepare('SELECT * FROM user WHERE auth_provider = "github" and foreign_id = ? limit 1')
 			.bind(githubUser.id)
 			.first();
 
-		console.log(context.platform);
 		let userId = null;
 		if (existingUser) {
 			userId = existingUser.id;
 		} else {
 			userId = generateId(15);
-
-			let insert = context.platform.DB.prepare(
-				'INSERT INTO user (id, username, github_id) VALUES (?, ?, ?)'
-			);
-			await insert.bind(userId, githubUser.login, githubUser.id).run();
+			let insert = db.prepare('INSERT INTO user (id, username, auth_provider, foreign_id) VALUES (?, ?, ?, ?)');
+			await insert.bind(userId, githubUser.login, 'github', githubUser.id).run();
 		}
 
 		const session = await getLucia(context).createSession(userId, {});
 		const sessionCookie = getLucia(context).createSessionCookie(session.id);
 		console.log(sessionCookie);
 
-		context.request.cookies.set(sessionCookie.name, sessionCookie.value, {
+		context.request.headers.set('set-cookie', serializeCookie(sessionCookie.name, sessionCookie.value, {
 			path: '.',
 			...sessionCookie.attributes
-		});
+		}));
+
+		console.log("Headers", context.request.headers);
 
 		return new Response(null, {
 			status: 302,

@@ -6,7 +6,10 @@ create table if not exists teams (
 
 
 create table user (
-    id text not null primary key
+    id text not null primary key,
+    username text not null,
+    auth_provider text not null,
+    foreign_id text not null
 );
 
 create table session (
