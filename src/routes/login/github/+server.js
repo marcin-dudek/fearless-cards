@@ -8,15 +8,12 @@ export const GET = async (context) => {
 	const github = getGithub(context);
 	const url = await github.createAuthorizationURL(state);
 
-	const cookie = serializeCookie('github_oauth_state', state, {
+	context.cookies.set('github_oauth_state', state, {
 		secure: context.platform.env.IsProduction,
-		path: '/',
+		path: "/",
 		httpOnly: true,
 		maxAge: 600,
 		sameSite: 'lax'
-	});
-
-	context.request.headers.set('set-cookie', cookie);
-
+	})
 	redirect(302, url.toString());
 };

@@ -7,11 +7,12 @@ export const GET = async (context) => {
 	let url = new URL(context.request.url);
 	const code = url.searchParams.get('code');
 	const state = url.searchParams.get('state');
-	const storedState = context.request.headers.get('Set-Cookie') ?? null;
+	const cookie = context.cookies.get('github_oauth_state') ?? null;
 
-	console.log("state = storedState", state, storedState);
+	console.log("state  = ", state);
+	console.log("cookie = ", cookie);
 
-	if (!code || !state) {
+	if (!code || !state || !cookie || state !== cookie) {
 		return new Response(null, {
 			status: 400
 		});
@@ -39,8 +40,8 @@ export const GET = async (context) => {
 			await update.bind(githubUser.name ?? githubUser.login, githubUser.avatar_url, userId).run();
 		} else {
 			userId = generateId(15);
-			let insert = db.prepare('INSERT INTO user (id, username, auth_provider, foreign_id, avatar_url) VALUES (?, ?, ?, ?,?)');
-			await insert.bind(userId, githubUser.name ?? githubUser.login, 'github', githubUser.id, githubUser.avatar_url).run();
+			let insert = db.prepare('INSERT INTO user (id, username, auth_provider, foreign_id, avatar_url) VALUES (?, ?, ?, ?, ?)');
+			await insert.bind(userId, githubUser.name ?? githubUser.login, 'github', githubUser.id.toString(), githubUser.avatar_url).run();
 		}
 
 		const session = await getLucia(context).createSession(userId, {});
