@@ -1,5 +1,6 @@
 <script>
 	import '../app.css';
+	import Login from './Login.svelte';
 </script>
 
 <div class="flex flex-col min-h-screen">
@@ -11,23 +12,7 @@
 			<a href="/login/github">Sign in with GitHub</a>
 		</div>
 		<div class="navbar-end">
-			<div class="dropdown dropdown-end">
-				<div tabindex="0" role="button" class="btn btn-ghost rounded avatar">
-					<div class="w-10 rounded-full">
-						<img
-							alt="Tailwind CSS Navbar component"
-							src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-						/>
-					</div>
-				</div>
-				<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-				<ul
-					tabindex="0"
-					class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-				>
-					<li><a href="/logout">Logout</a></li>
-				</ul>
-			</div>
+			<Login />
 			<label class="btn btn-ghost swap swap-rotate">
 				<!-- this hidden checkbox controls the state -->
 				<input type="checkbox" class="theme-controller" value="nord" />

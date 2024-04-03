@@ -1,6 +1,5 @@
 import { redirect } from '@sveltejs/kit';
 import { generateState } from 'arctic';
-import { serializeCookie } from 'oslo/cookie';
 import { getGithub } from '$lib/auth';
 
 export const GET = async (context) => {

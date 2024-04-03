@@ -8,9 +8,20 @@ export const GET = async (context) => {
 	const code = url.searchParams.get('code');
 	const state = url.searchParams.get('state');
 	const cookie = context.cookies.get('github_oauth_state') ?? null;
+	const session_cookie = context.cookies.get('auth_session') ?? null;
 
 	console.log("state  = ", state);
 	console.log("cookie = ", cookie);
+	console.log("session_cookie = ", session_cookie);
+
+	if (session_cookie) {
+		return new Response(null, {
+			status: 302,
+			headers: {
+				Location: '/'
+			}
+		});
+	}
 
 	if (!code || !state || !cookie || state !== cookie) {
 		return new Response(null, {
