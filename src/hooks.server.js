@@ -1,7 +1,7 @@
-import { getLucia } from "$lib/auth";
+import { getLucia } from '$lib/auth';
 
 export const handle = async ({ event, resolve }) => {
-  console.log("Running auth hook");
+  console.log('Running auth hook');
   let lucia = getLucia(event);
   const sessionId = event.cookies.get(lucia.sessionCookieName);
   if (!sessionId) {
@@ -14,14 +14,14 @@ export const handle = async ({ event, resolve }) => {
   if (session && session.fresh) {
     const sessionCookie = lucia.createSessionCookie(session.id);
     event.cookies.set(sessionCookie.name, sessionCookie.value, {
-      path: ".",
+      path: '.',
       ...sessionCookie.attributes
     });
   }
   if (!session) {
     const sessionCookie = lucia.createBlankSessionCookie();
     event.cookies.set(sessionCookie.name, sessionCookie.value, {
-      path: ".",
+      path: '.',
       ...sessionCookie.attributes
     });
   }

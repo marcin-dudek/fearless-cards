@@ -1,192 +1,40 @@
 [
-	{
-		"id": 14018,
-		"name": "Frostmage",
-		"kingdom": "Glacial Peaks"
-	},
-	{
-		"id": 14029,
-		"name": "Slayer",
-		"kingdom": "Dhrak-Zum"
-	},
-	{
-		"id": 14027,
-		"name": "Diabolist",
-		"kingdom": "Blighted Lands"
-	},
-	{
-		"id": 14010,
-		"name": "Oracle",
-		"kingdom": "Divinion Fields"
-	},
-	{
-		"id": 14016,
-		"name": "Sunspear",
-		"kingdom": "Pridelands"
-	},
-	{
-		"id": 14021,
-		"name": "Plaguelord",
-		"kingdom": "Darkstone"
-	},
-	{
-		"id": 14005,
-		"name": "Sorcerer",
-		"kingdom": "Karakoth"
-	},
-	{
-		"id": 14033,
-		"name": "Doomsayer",
-		"kingdom": "Sin of Maraj"
-	},
-	{
-		"id": 14014,
-		"name": "Dragonguard",
-		"kingdom": "Dragon's Claw"
-	},
-	{
-		"id": 14032,
-		"name": "Barbarian",
-		"kingdom": "Grosh-Nak"
-	},
-	{
-		"id": 14023,
-		"name": "Dervish",
-		"kingdom": "Drifting Sands"
-	},
-	{
-		"id": 14000,
-		"name": "Warlord",
-		"kingdom": "Broken Spire"
-	},
-	{
-		"id": 14006,
-		"name": "Necromancer",
-		"kingdom": "Khetar"
-	},
-	{
-		"id": 14015,
-		"name": "Runepriest",
-		"kingdom": "Khaziel"
-	},
-	{
-		"id": 14022,
-		"name": "Sentinel",
-		"kingdom": "Urskaya"
-	},
-	{
-		"id": 14008,
-		"name": "Assassin",
-		"kingdom": "Mist of Scales"
-	},
-	{
-		"id": 14037,
-		"name": "Nightweaver",
-		"kingdom": "Mydnight"
-	},
-	{
-		"id": 14031,
-		"name": "Monk",
-		"kingdom": "Shentang"
-	},
-	{
-		"id": 14004,
-		"name": "Archer",
-		"kingdom": "Forest of Thorns"
-	},
-	{
-		"id": 14035,
-		"name": "Geomancer",
-		"kingdom": "Hellcrag"
-	},
-	{
-		"id": 14024,
-		"name": "Hierophant",
-		"kingdom": "Bright Forest"
-	},
-	{
-		"id": 14011,
-		"name": "Deathknight",
-		"kingdom": "Ghulvania"
-	},
-	{
-		"id": 14003,
-		"name": "Priest",
-		"kingdom": "Whitehelm"
-	},
-	{
-		"id": 14020,
-		"name": "Shaman",
-		"kingdom": "Wild Plains"
-	},
-	{
-		"id": 14026,
-		"name": "Corsair",
-		"kingdom": "Blackhawk"
-	},
-	{
-		"id": 14017,
-		"name": "Thief",
-		"kingdom": "Zaejin"
-	},
-	{
-		"id": 14019,
-		"name": "Warpriest",
-		"kingdom": "Leonis Empire"
-	},
-	{
-		"id": 14028,
-		"name": "Archmagus",
-		"kingdom": "Silverglade"
-	},
-	{
-		"id": 14002,
-		"name": "Warden",
-		"kingdom": "Maugrim Woods"
-	},
-	{
-		"id": 14036,
-		"name": "Spiritwalker",
-		"kingdom": "Vulpacea"
-	},
-	{
-		"id": 14030,
-		"name": "Stormcaller",
-		"kingdom": "Suncrest"
-	},
-	{
-		"id": 14012,
-		"name": "Titan",
-		"kingdom": "Stormheim"
-	},
-	{
-		"id": 14009,
-		"name": "Orbweaver",
-		"kingdom": "Zhul'Kari"
-	},
-	{
-		"id": 14001,
-		"name": "Knight",
-		"kingdom": "Sword's Edge"
-	},
-	{
-		"id": 14025,
-		"name": "Tidecaller",
-		"kingdom": "Merlantis"
-	},
-	{
-		"id": 14034,
-		"name": "Elementalist",
-		"kingdom": "Nexus"
-	},
-	{
-		"id": 14007,
-		"name": "Mechanist",
-		"kingdom": "Adana"
-	},
-	{
-		"id": 14013,
-		"name": "Bard",
-		"kingdom": "Pan's Vale"
-	}
+  { "id": 14000, "name": "Warlord", "kingdom": "Broken Spire" },
+  { "id": 14001, "name": "Knight", "kingdom": "Sword's Edge" },
+  { "id": 14002, "name": "Warden", "kingdom": "Maugrim Woods" },
+  { "id": 14003, "name": "Priest", "kingdom": "Whitehelm" },
+  { "id": 14004, "name": "Archer", "kingdom": "Forest of Thorns" },
+  { "id": 14005, "name": "Sorcerer", "kingdom": "Karakoth" },
+  { "id": 14006, "name": "Necromancer", "kingdom": "Khetar" },
+  { "id": 14007, "name": "Mechanist", "kingdom": "Adana" },
+  { "id": 14008, "name": "Assassin", "kingdom": "Mist of Scales" },
+  { "id": 14009, "name": "Orbweaver", "kingdom": "Zhul'Kari" },
+  { "id": 14010, "name": "Oracle", "kingdom": "Divinion Fields" },
+  { "id": 14011, "name": "Deathknight", "kingdom": "Ghulvania" },
+  { "id": 14012, "name": "Titan", "kingdom": "Stormheim" },
+  { "id": 14013, "name": "Bard", "kingdom": "Pan's Vale" },
+  { "id": 14014, "name": "Dragonguard", "kingdom": "Dragon's Claw" },
+  { "id": 14015, "name": "Runepriest", "kingdom": "Khaziel" },
+  { "id": 14016, "name": "Sunspear", "kingdom": "Pridelands" },
+  { "id": 14017, "name": "Thief", "kingdom": "Zaejin" },
+  { "id": 14018, "name": "Frostmage", "kingdom": "Glacial Peaks" },
+  { "id": 14019, "name": "Warpriest", "kingdom": "Leonis Empire" },
+  { "id": 14020, "name": "Shaman", "kingdom": "Wild Plains" },
+  { "id": 14021, "name": "Plaguelord", "kingdom": "Darkstone" },
+  { "id": 14022, "name": "Sentinel", "kingdom": "Urskaya" },
+  { "id": 14023, "name": "Dervish", "kingdom": "Drifting Sands" },
+  { "id": 14024, "name": "Hierophant", "kingdom": "Bright Forest" },
+  { "id": 14025, "name": "Tidecaller", "kingdom": "Merlantis" },
+  { "id": 14026, "name": "Corsair", "kingdom": "Blackhawk" },
+  { "id": 14027, "name": "Diabolist", "kingdom": "Blighted Lands" },
+  { "id": 14028, "name": "Archmagus", "kingdom": "Silverglade" },
+  { "id": 14029, "name": "Slayer", "kingdom": "Dhrak-Zum" },
+  { "id": 14030, "name": "Stormcaller", "kingdom": "Suncrest" },
+  { "id": 14031, "name": "Monk", "kingdom": "Shentang" },
+  { "id": 14032, "name": "Barbarian", "kingdom": "Grosh-Nak" },
+  { "id": 14033, "name": "Doomsayer", "kingdom": "Sin of Maraj" },
+  { "id": 14034, "name": "Elementalist", "kingdom": "Nexus" },
+  { "id": 14035, "name": "Geomancer", "kingdom": "Hellcrag" },
+  { "id": 14036, "name": "Spiritwalker", "kingdom": "Vulpacea" },
+  { "id": 14037, "name": "Nightweaver", "kingdom": "Mydnight" }
 ]

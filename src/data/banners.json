@@ -1,354 +1,90 @@
 [
-	{
-		"id": 3007,
-		"name": "Ghulvania"
-	},
-	{
-		"id": 3064,
-		"name": "Wyrmrun"
-	},
-	{
-		"id": 3019,
-		"name": "Dragon's Claw"
-	},
-	{
-		"id": 3060,
-		"name": "The Deep Hive"
-	},
-	{
-		"id": 3057,
-		"name": "Hell Gate"
-	},
-	{
-		"id": 3072,
-		"name": "Depths of Sin"
-	},
-	{
-		"id": 3054,
-		"name": "Indrajit's Palace"
-	},
-	{
-		"id": 3050,
-		"name": "Fang Moor"
-	},
-	{
-		"id": 3067,
-		"name": "Stonesong Eyrie"
-	},
-	{
-		"id": 3049,
-		"name": "Dark Pits"
-	},
-	{
-		"id": 3022,
-		"name": "Darkstone"
-	},
-	{
-		"id": 3004,
-		"name": "Zaejin"
-	},
-	{
-		"id": 3000,
-		"name": "Broken Spire"
-	},
-	{
-		"id": 3066,
-		"name": "Silver Necropolis"
-	},
-	{
-		"id": 3055,
-		"name": "Dark Court"
-	},
-	{
-		"id": 3063,
-		"name": "City of Thieves"
-	},
-	{
-		"id": 3005,
-		"name": "Pridelands"
-	},
-	{
-		"id": 3012,
-		"name": "Khaziel"
-	},
-	{
-		"id": 3053,
-		"name": "Amanithrax"
-	},
-	{
-		"id": 3006,
-		"name": "Sword's Edge"
-	},
-	{
-		"id": 3042,
-		"name": "Hall of Guardians"
-	},
-	{
-		"id": 3065,
-		"name": "The Black Heart"
-	},
-	{
-		"id": 3029,
-		"name": "Zhul'Kari"
-	},
-	{
-		"id": 3003,
-		"name": "Pan's Vale"
-	},
-	{
-		"id": 3081,
-		"name": "Umbral Nexus"
-	},
-	{
-		"id": 3056,
-		"name": "Frostfire Keep"
-	},
-	{
-		"id": 3092,
-		"name": "Faction3"
-	},
-	{
-		"id": 3037,
-		"name": "Sin of Maraj"
-	},
-	{
-		"id": 3086,
-		"name": "Kingdom3"
-	},
-	{
-		"id": 3051,
-		"name": "Emperinazar"
-	},
-	{
-		"id": 3028,
-		"name": "Divinion Fields"
-	},
-	{
-		"id": 3083,
-		"name": "Obsidian Depths"
-	},
-	{
-		"id": 3001,
-		"name": "Adana"
-	},
-	{
-		"id": 3085,
-		"name": "Mydnight"
-	},
-	{
-		"id": 3061,
-		"name": "Fell Roost"
-	},
-	{
-		"id": 3034,
-		"name": "Apocalypse"
-	},
-	{
-		"id": 3030,
-		"name": "Shentang"
-	},
-	{
-		"id": 3048,
-		"name": "Wild Court"
-	},
-	{
-		"id": 3035,
-		"name": "Dhrak-Zum"
-	},
-	{
-		"id": 3084,
-		"name": "Vulpacea"
-	},
-	{
-		"id": 3080,
-		"name": "Nexus"
-	},
-	{
-		"id": 3036,
-		"name": "Merlantis"
-	},
-	{
-		"id": 3087,
-		"name": "Kingdom4"
-	},
-	{
-		"id": 3018,
-		"name": "Grosh-Nak"
-	},
-	{
-		"id": 3033,
-		"name": "Guardians"
-	},
-	{
-		"id": 3023,
-		"name": "Suncrest"
-	},
-	{
-		"id": 3088,
-		"name": "Kingdom5"
-	},
-	{
-		"id": 3009,
-		"name": "Silverglade"
-	},
-	{
-		"id": 3059,
-		"name": "The Labyrinth"
-	},
-	{
-		"id": 3017,
-		"name": "Karakoth"
-	},
-	{
-		"id": 3040,
-		"name": "Crypt Keepers"
-	},
-	{
-		"id": 3044,
-		"name": "Fire Rift"
-	},
-	{
-		"id": 3026,
-		"name": "Blackhawk"
-	},
-	{
-		"id": 3047,
-		"name": "Eldrazhor"
-	},
-	{
-		"id": 3025,
-		"name": "Leonis Empire"
-	},
-	{
-		"id": 3069,
-		"name": "Sunken Fleet"
-	},
-	{
-		"id": 3014,
-		"name": "Whitehelm"
-	},
-	{
-		"id": 3010,
-		"name": "Urskaya"
-	},
-	{
-		"id": 3046,
-		"name": "Duergaroth"
-	},
-	{
-		"id": 3024,
-		"name": "Drifting Sands"
-	},
-	{
-		"id": 3002,
-		"name": "Bright Forest"
-	},
-	{
-		"id": 3015,
-		"name": "Forest of Thorns"
-	},
-	{
-		"id": 3020,
-		"name": "Khetar"
-	},
-	{
-		"id": 3052,
-		"name": "The Warrens"
-	},
-	{
-		"id": 3091,
-		"name": "Nightmare Circus"
-	},
-	{
-		"id": 3043,
-		"name": "Primal Rift"
-	},
-	{
-		"id": 3038,
-		"name": "The Vault"
-	},
-	{
-		"id": 3062,
-		"name": "Mirrored Halls"
-	},
-	{
-		"id": 3070,
-		"name": "Lyrasza's Lair"
-	},
-	{
-		"id": 3013,
-		"name": "Stormheim"
-	},
-	{
-		"id": 3016,
-		"name": "Mist of Scales"
-	},
-	{
-		"id": 3045,
-		"name": "Tinker Town"
-	},
-	{
-		"id": 3027,
-		"name": "Wild Plains"
-	},
-	{
-		"id": 3011,
-		"name": "Glacial Peaks"
-	},
-	{
-		"id": 3039,
-		"name": "All-Seeing Eye"
-	},
-	{
-		"id": 3095,
-		"name": "Faction6"
-	},
-	{
-		"id": 3082,
-		"name": "Hellcrag"
-	},
-	{
-		"id": 3041,
-		"name": "Sea of Sorrow"
-	},
-	{
-		"id": 3093,
-		"name": "Faction4"
-	},
-	{
-		"id": 3068,
-		"name": "Werewoods"
-	},
-	{
-		"id": 3071,
-		"name": "Illithia"
-	},
-	{
-		"id": 3032,
-		"name": "Primal"
-	},
-	{
-		"id": 3008,
-		"name": "Maugrim Woods"
-	},
-	{
-		"id": 3089,
-		"name": "Kingdom6"
-	},
-	{
-		"id": 3021,
-		"name": "Blighted Lands"
-	},
-	{
-		"id": 3094,
-		"name": "Faction5"
-	},
-	{
-		"id": 3090,
-		"name": "Court of Foxes"
-	},
-	{
-		"id": 3058,
-		"name": "Dripping Caverns"
-	}
+  { "id": 3000, "name": "Broken Spire" },
+  { "id": 3001, "name": "Adana" },
+  { "id": 3002, "name": "Bright Forest" },
+  { "id": 3003, "name": "Pan's Vale" },
+  { "id": 3004, "name": "Zaejin" },
+  { "id": 3005, "name": "Pridelands" },
+  { "id": 3006, "name": "Sword's Edge" },
+  { "id": 3007, "name": "Ghulvania" },
+  { "id": 3008, "name": "Maugrim Woods" },
+  { "id": 3009, "name": "Silverglade" },
+  { "id": 3010, "name": "Urskaya" },
+  { "id": 3011, "name": "Glacial Peaks" },
+  { "id": 3012, "name": "Khaziel" },
+  { "id": 3013, "name": "Stormheim" },
+  { "id": 3014, "name": "Whitehelm" },
+  { "id": 3015, "name": "Forest of Thorns" },
+  { "id": 3016, "name": "Mist of Scales" },
+  { "id": 3017, "name": "Karakoth" },
+  { "id": 3018, "name": "Grosh-Nak" },
+  { "id": 3019, "name": "Dragon's Claw" },
+  { "id": 3020, "name": "Khetar" },
+  { "id": 3021, "name": "Blighted Lands" },
+  { "id": 3022, "name": "Darkstone" },
+  { "id": 3023, "name": "Suncrest" },
+  { "id": 3024, "name": "Drifting Sands" },
+  { "id": 3025, "name": "Leonis Empire" },
+  { "id": 3026, "name": "Blackhawk" },
+  { "id": 3027, "name": "Wild Plains" },
+  { "id": 3028, "name": "Divinion Fields" },
+  { "id": 3029, "name": "Zhul'Kari" },
+  { "id": 3030, "name": "Shentang" },
+  { "id": 3032, "name": "Primal" },
+  { "id": 3033, "name": "Guardians" },
+  { "id": 3034, "name": "Apocalypse" },
+  { "id": 3035, "name": "Dhrak-Zum" },
+  { "id": 3036, "name": "Merlantis" },
+  { "id": 3037, "name": "Sin of Maraj" },
+  { "id": 3038, "name": "The Vault" },
+  { "id": 3039, "name": "All-Seeing Eye" },
+  { "id": 3040, "name": "Crypt Keepers" },
+  { "id": 3041, "name": "Sea of Sorrow" },
+  { "id": 3042, "name": "Hall of Guardians" },
+  { "id": 3043, "name": "Primal Rift" },
+  { "id": 3044, "name": "Fire Rift" },
+  { "id": 3045, "name": "Tinker Town" },
+  { "id": 3046, "name": "Duergaroth" },
+  { "id": 3047, "name": "Eldrazhor" },
+  { "id": 3048, "name": "Wild Court" },
+  { "id": 3049, "name": "Dark Pits" },
+  { "id": 3050, "name": "Fang Moor" },
+  { "id": 3051, "name": "Emperinazar" },
+  { "id": 3052, "name": "The Warrens" },
+  { "id": 3053, "name": "Amanithrax" },
+  { "id": 3054, "name": "Indrajit's Palace" },
+  { "id": 3055, "name": "Dark Court" },
+  { "id": 3056, "name": "Frostfire Keep" },
+  { "id": 3057, "name": "Hell Gate" },
+  { "id": 3058, "name": "Dripping Caverns" },
+  { "id": 3059, "name": "The Labyrinth" },
+  { "id": 3060, "name": "The Deep Hive" },
+  { "id": 3061, "name": "Fell Roost" },
+  { "id": 3062, "name": "Mirrored Halls" },
+  { "id": 3063, "name": "City of Thieves" },
+  { "id": 3064, "name": "Wyrmrun" },
+  { "id": 3065, "name": "The Black Heart" },
+  { "id": 3066, "name": "Silver Necropolis" },
+  { "id": 3067, "name": "Stonesong Eyrie" },
+  { "id": 3068, "name": "Werewoods" },
+  { "id": 3069, "name": "Sunken Fleet" },
+  { "id": 3070, "name": "Lyrasza's Lair" },
+  { "id": 3071, "name": "Illithia" },
+  { "id": 3072, "name": "Depths of Sin" },
+  { "id": 3080, "name": "Nexus" },
+  { "id": 3081, "name": "Umbral Nexus" },
+  { "id": 3082, "name": "Hellcrag" },
+  { "id": 3083, "name": "Obsidian Depths" },
+  { "id": 3084, "name": "Vulpacea" },
+  { "id": 3085, "name": "Mydnight" },
+  { "id": 3086, "name": "Kingdom3" },
+  { "id": 3087, "name": "Kingdom4" },
+  { "id": 3088, "name": "Kingdom5" },
+  { "id": 3089, "name": "Kingdom6" },
+  { "id": 3090, "name": "Court of Foxes" },
+  { "id": 3091, "name": "Nightmare Circus" },
+  { "id": 3092, "name": "Faction3" },
+  { "id": 3093, "name": "Faction4" },
+  { "id": 3094, "name": "Faction5" },
+  { "id": 3095, "name": "Faction6" }
 ]
