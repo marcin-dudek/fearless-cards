@@ -8,6 +8,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 
@@ -40,10 +41,21 @@ func main() {
 	}
 
 	fmt.Printf("Classes: %d\n.", len(classes))
+	sort.SliceStable(classes, func(i, j int) bool {
+		return classes[i].Id < classes[j].Id
+	})
 	saveToFile(classes, classesFile)
+
 	fmt.Printf("Banners: %d\n.", len(banners))
+	sort.SliceStable(banners, func(i, j int) bool {
+		return banners[i].Id < banners[j].Id
+	})
 	saveToFile(banners, bannersFile)
+
 	fmt.Printf("Troops: %d\n.", len(troops))
+	sort.SliceStable(troops, func(i, j int) bool {
+		return troops[i].Id < troops[j].Id
+	})
 	saveToFile(troops, troopsFile)
 	fmt.Println("Done.")
 }
