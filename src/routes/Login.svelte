@@ -1,14 +1,19 @@
 <script>
-	import { user } from '$lib/user';
 	import { LogIn } from 'lucide-svelte';
+	import { user } from '$lib/user';
+
+	user.subscribe((value) => {
+		console.log(value);
+	});
+	console.log(user);
 </script>
 
 <div class="dropdown dropdown-end">
 	<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
-	{#if user === null}
+	{#if !$user}
 		<div tabindex="0" role="button" class="btn btn-ghost rounded avatar">
-			<div class="w-10 rounded-full">
-				<LogIn size={36} />
+			<div class="size-10 rounded-full">
+				<LogIn class="size-10" />
 			</div>
 		</div>
 		<ul
@@ -20,9 +25,10 @@
 		</ul>
 	{:else}
 		<div tabindex="0" role="button" class="btn btn-ghost rounded avatar">
-			<div class="w-10 rounded-full">
-				<img src={user.avatar_url} />
+			<div class="size-10 rounded-full">
+				<img src={user.avatar_url} alt="user avatar" />
 			</div>
+			{user.username}
 		</div>
 		<ul
 			tabindex="0"
