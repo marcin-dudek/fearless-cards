@@ -1,4 +1,4 @@
 export const load = async (event) => {
-  console.log("/ ", event.locals);
+  console.log("/layout ", event.locals);
   return event.locals;
 };

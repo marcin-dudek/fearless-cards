@@ -1,6 +1,7 @@
 import { getLucia } from "$lib/auth";
 
 export const handle = async ({ event, resolve }) => {
+  console.log("Running auth hook");
   let lucia = getLucia(event);
   const sessionId = event.cookies.get(lucia.sessionCookieName);
   if (!sessionId) {

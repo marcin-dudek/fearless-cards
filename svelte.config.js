@@ -14,7 +14,7 @@ const config = {
 			mode: 'hash',
 			directives: {
 				'default-src': ["'self'"],
-				'img-src': ["'self'", 'data:'],
+				'img-src': ["'self'", 'data:', 'https://avatars.githubusercontent.com'],
 				'style-src': ["'self'", "'unsafe-inline'"],
 				'connect-src': ["'self'", 'https://cloudflareinsights.com'],
 				'script-src': ["'self'", 'https://static.cloudflareinsights.com']

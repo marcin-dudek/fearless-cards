@@ -1,16 +1,27 @@
 <script>
-	import { Moon, Sun } from 'lucide-svelte';
+	import { Info, Moon, Sun } from 'lucide-svelte';
 	import '../app.css';
-	import Login from './Login.svelte';
+	import Login from '../components/Login.svelte';
+
+	import { user } from '$lib/user';
+	/** @type {import('./$types').LayoutData} */
+	export let data;
+
+	$: user.set(data.user);
 </script>
 
 <div class="flex flex-col min-h-screen">
-	<div class="navbar bg-base-900">
+	<div class="navbar bg-base-200">
 		<div class="navbar-start">
 			<a class="btn btn-ghost text-xl" href="/">GoW Teams</a>
 		</div>
 		<div class="navbar-center"></div>
 		<div class="navbar-end">
+			<div role="button" class="btn btn-ghost rounded avatar">
+				<div class="size-10 rounded-full">
+					<a href="/about"><Info class="size-10" /></a>
+				</div>
+			</div>
 			<Login />
 			<label class="btn btn-ghost swap swap-rotate">
 				<input type="checkbox" class="theme-controller" value="nord" />

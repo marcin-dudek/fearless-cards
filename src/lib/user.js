@@ -1,3 +1,4 @@
 import { writable } from "svelte/store";
 
-export let user = writable(null);
+// @type {username: string, avatar_url: string, id: string}
+export const user = writable(null);
