@@ -56,13 +56,7 @@ export const GET = async (context) => {
         'INSERT INTO user (id, username, auth_provider, foreign_id, avatar_url) VALUES (?, ?, ?, ?, ?)'
       );
       await insert
-        .bind(
-          userId,
-          githubUser.name ?? githubUser.login,
-          'github',
-          githubUser.id.toString(),
-          githubUser.avatar_url
-        )
+        .bind(userId, githubUser.name ?? githubUser.login, 'github', githubUser.id.toString(), githubUser.avatar_url)
         .run();
     }
 

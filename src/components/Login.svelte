@@ -11,10 +11,7 @@
         <LogIn class="size-10" />
       </div>
     </div>
-    <ul
-      tabindex="0"
-      class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-    >
+    <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
       <li><a href="/login/github"> Github</a></li>
       <li><a href="/login/discord"> Discord</a></li>
     </ul>
@@ -24,10 +21,7 @@
         <img src={$user.avatar_url} alt="user avatar" />
       </div>
     </div>
-    <ul
-      tabindex="0"
-      class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-    >
+    <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
       <li><a href="/account">{$user.username}</a></li>
       <li><a href="/logout">Logout</a></li>
     </ul>
