@@ -5,7 +5,11 @@
 
   let id;
 
-  $: id = $page.params.id;
+  import { user } from '$lib/user';
+  export let data;
+  $: user.set(data.user);
+
+  $: id = $page.params.id ?? null;
 
   onMount(() => {
     console.log('id:', $page);

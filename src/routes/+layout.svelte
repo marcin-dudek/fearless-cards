@@ -3,9 +3,9 @@
   import '../app.css';
   import Login from '../components/Login.svelte';
 
-  import { user } from '$lib/user';
-  export let data;
-  $: user.set(data.user);
+  // import { user } from '$lib/user';
+  // export let data;
+  // $: user.set(data.user);
 </script>
 
 <div class="flex flex-col min-h-screen">
