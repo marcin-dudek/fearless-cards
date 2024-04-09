@@ -13,7 +13,7 @@
   });
 </script>
 
-<ul class="menu w-80 min-h-full text-base-content">
+<ul class="menu min-h-full text-base-content">
   <div class="join w-full pb-6">
     <a href="/c" class="btn btn-outline btn-primary join-item w-full">New</a>
   </div>
