@@ -1,8 +1,9 @@
 <script>
   import { page } from '$app/stores';
   import { onMount } from 'svelte';
-  import Collection from '../../components/Collection.svelte';
-  import CreateCollection from '../../components/CreateCollection.svelte';
+  import CollectionList from './CollectionList.svelte';
+  import CreateCollection from './CreateCollection.svelte';
+  import Collection from './Collection.svelte';
 
   let collection = null;
 
@@ -19,7 +20,7 @@
 </script>
 
 <div class="grid grid-cols-3 py-6 gap-x-6">
-  <div><Collection /></div>
+  <div><CollectionList /></div>
   <div class="col-span-2">
     {#if collection}
       <h1>{collection.name}</h1>
@@ -27,6 +28,7 @@
         <p>{team.code}</p>
         <br />
       {/each}
+      <Collection data={collection} />
     {:else}
       <CreateCollection />
     {/if}

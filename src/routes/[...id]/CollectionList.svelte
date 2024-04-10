@@ -4,7 +4,6 @@
   import { collections } from '$lib/collections';
 
   onMount(() => {
-    console.log('collections:', $collections);
     if ($collections === null) {
       fetch('/api/collections')
         .then((res) => res.json())

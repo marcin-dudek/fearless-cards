@@ -2,7 +2,7 @@ import { generateId } from 'lucia';
 
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ platform, cookies, locals }) => {
-  console.log('GET /api/collections', locals.user.id);
+  console.log('GET /api/collections', locals.user);
   let session = cookies.get('auth_session');
 
   if (session !== null && locals.user !== null) {
