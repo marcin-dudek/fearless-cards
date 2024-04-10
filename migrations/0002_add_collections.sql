@@ -1,6 +1,4 @@
--- Migration number: 0003 	 2024-04-05T11:17:09.421Z
-drop table if exists teams;
-
+-- Migration number: 0002 	 2024-04-05T11:17:09.421Z
 create table if not exists collection (
   id text not null primary key,
   owner text not null,

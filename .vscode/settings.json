@@ -1,3 +1,5 @@
 {
-  "prettier.configPath": ".prettierrc"
+  "prettier.configPath": ".prettierrc",
+  "evenBetterToml.formatter.allowedBlankLines": 1,
+  "evenBetterToml.formatter.columnWidth": 120
 }

@@ -1,3 +1,5 @@
-d1_databases = [
-  { binding = "DB", database_name = "FearlessCards", database_id = "31e6ecf4-435f-4865-8f3e-1beace76aaa8" }
-]
+[[d1_databases]]
+binding = "DB"
+database_name = "fearless-cards"
+database_id = "a4596b31-4388-4a55-8fd2-ec5d0ed00074"
+migrations_table = "migrations"

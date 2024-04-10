@@ -1,14 +1,9 @@
 -- Migration number: 0001 	 2024-03-29T19:56:46.768Z
-create table if not exists teams (
-  id text primary key,
-  code text not null,
-  tags text
-);
-
 create table if not exists user (
   id text not null primary key,
   username text not null,
   auth_provider text not null,
+  avatar_url text not null,
   foreign_id text not null
 );
 

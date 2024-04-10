@@ -11,6 +11,12 @@
       "options": {
         "parser": "svelte"
       }
+    },
+    {
+      "files": "*.toml",
+      "options": {
+        "parser": "toml"
+      }
     }
   ]
 }
