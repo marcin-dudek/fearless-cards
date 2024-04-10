@@ -1,4 +1,5 @@
 <script>
+  import { collections } from '$lib/collections';
   import { user } from '$lib/user';
   let data = { name: '', is_public: false };
 
@@ -9,13 +10,10 @@
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-
-      //make sure to serialize your JSON body
       body: JSON.stringify(data)
-    }).then((response) => {
-      //do something awesome that makes the world a better place
-      console.log(response);
-    });
+    })
+      .then((res) => res.json())
+      .then((data) => collections.set(data));
   };
 </script>
 

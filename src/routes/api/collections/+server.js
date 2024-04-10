@@ -4,13 +4,10 @@ import { generateId } from 'lucia';
 export const GET = async ({ platform, cookies, locals }) => {
   console.log('GET /api/collections', locals.user.id);
   let session = cookies.get('auth_session');
+
   if (session !== null && locals.user !== null) {
-    const query = platform.env.DB.prepare(
-      'select id, name, owner, is_public, sort_order from collection where owner = ?'
-    );
-    let result = await query.bind(locals.user.id).run();
-    //console.log('result', result);
-    return new Response(JSON.stringify(result.results));
+    const result = await getCollection(platform.env.DB, locals.user.id);
+    return new Response(JSON.stringify(result));
   }
 
   return new Response(JSON.stringify([]));
@@ -32,8 +29,17 @@ export const POST = async ({ platform, locals, request, cookies }) => {
       .run();
 
     console.log('session matched');
-    return new Response('OK');
+    const result = await getCollection(platform.env.DB, locals.user.id);
+    return new Response(JSON.stringify(result));
   }
 
   return new Response('Unauthorized', { status: 401 });
 };
+
+const getCollection = async (db, owner) => {
+  const query = db.prepare(
+    'select id, name, owner, is_public, sort_order from collection where owner = ?'
+  );
+  let result = await query.bind(owner).run();
+  return result.results;
+}
