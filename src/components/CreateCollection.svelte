@@ -1,6 +1,6 @@
 <script>
   import { user } from '$lib/user';
-  let data = { name: '', public: false };
+  let data = { name: '', is_public: false };
 
   let crete = () => {
     fetch('/api/collections', {
@@ -31,7 +31,7 @@
 
     <label class="label cursor-pointer w-32">
       <span class="label-text">Public</span>
-      <input type="checkbox" class="checkbox" bind:checked={data.public} />
+      <input type="checkbox" class="checkbox" bind:checked={data.is_public} />
     </label>
 
     <br />

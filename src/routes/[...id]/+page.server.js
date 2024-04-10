@@ -1,5 +1,5 @@
 export const load = async ({ locals, url }) => {
-  console.log('/[...id] ', locals);
+  console.log('/[...id] ', locals.user.id);
 
   // let user = locals.user ?? null;
   // if (user !== null) {

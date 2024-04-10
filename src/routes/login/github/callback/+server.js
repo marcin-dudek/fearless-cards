@@ -51,7 +51,7 @@ export const GET = async (context) => {
       let update = db.prepare('UPDATE user SET username = ?, avatar_url = ? WHERE id = ?');
       await update.bind(githubUser.name ?? githubUser.login, githubUser.avatar_url, userId).run();
     } else {
-      userId = generateId(15);
+      userId = generateId(10);
       let insert = db.prepare(
         'INSERT INTO user (id, username, auth_provider, foreign_id, avatar_url) VALUES (?, ?, ?, ?, ?)'
       );
