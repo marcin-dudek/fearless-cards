@@ -23,11 +23,6 @@
   <div><CollectionList /></div>
   <div class="col-span-2">
     {#if collection}
-      <h1>{collection.name}</h1>
-      {#each collection.teams ?? [] as team}
-        <p>{team.code}</p>
-        <br />
-      {/each}
       <Collection data={collection} />
     {:else}
       <CreateCollection />

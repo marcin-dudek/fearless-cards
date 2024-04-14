@@ -2,7 +2,7 @@ import { generateId } from 'lucia';
 
 /** @type {import('./$types').RequestHandler} */
 export const GET = async ({ platform, cookies, locals }) => {
-  console.log('GET /api/collections', locals.user);
+  console.log('GET /api/teams/[id]', locals.user);
   let session = cookies.get('auth_session');
 
   if (session !== null && locals.user !== null) {
@@ -34,10 +34,4 @@ export const POST = async ({ platform, locals, request, cookies }) => {
   }
 
   return new Response('Unauthorized', { status: 401 });
-};
-
-const getCollection = async (db, owner) => {
-  const query = db.prepare('select id, name, owner, is_public, sort_order from collection where owner = ?');
-  let result = await query.bind(owner).run();
-  return result.results;
 };

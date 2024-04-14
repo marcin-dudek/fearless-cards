@@ -3,17 +3,26 @@
   import { user } from '$lib/user';
   let data = { name: '', is_public: false };
 
-  let crete = () => {
-    fetch('/api/collections', {
-      method: 'post',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-      .then((res) => res.json())
-      .then((data) => collections.set(data));
+  let create = async () => {
+    try {
+      const response = await fetch('/api/collections', {
+        method: 'post',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
+      const responseData = await response.json();
+      collections.set(responseData);
+    } catch (error) {
+      console.error('There has been a problem with your fetch operation:', error);
+    }
   };
 </script>
 
@@ -39,7 +48,7 @@
           <button class="btn btn-primary" disabled>Create</button>
         </div>
       {:else}
-        <button class="btn btn-primary" on:click={crete}>Create</button>
+        <button class="btn btn-primary" on:click={create}>Create</button>
       {/if}
     </div>
   </div>
